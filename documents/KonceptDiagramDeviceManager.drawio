@@ -29,7 +29,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="OWnZFTI2fPpyt90wz5rs-11" value="DeviceConfig&lt;br&gt;- server : string&lt;br&gt;- audioBitrate : int&lt;br&gt;- videoBitrate : int&lt;br&gt;- resolution: string&lt;br&gt;- fps : int&lt;br&gt;- codec : string" style="html=1;dashed=0;whiteSpace=wrap;" parent="1" vertex="1">
-          <mxGeometry x="220" y="340" width="170" height="120" as="geometry" />
+          <mxGeometry x="100" y="340" width="170" height="120" as="geometry" />
         </mxCell>
         <mxCell id="OWnZFTI2fPpyt90wz5rs-13" value="DeviceManager&lt;br&gt;-devices: List&amp;lt;Device&amp;gt;&lt;br&gt;- APIManager: APIManger&lt;br&gt;+GetStatus(ip): Task&amp;lt;DeviceStatus&amp;gt;&lt;br&gt;+GetConfig(ip): Task&amp;lt;DeviceConfig&amp;gt;" style="html=1;dashed=0;whiteSpace=wrap;" parent="1" vertex="1">
           <mxGeometry x="120" y="-10" width="240" height="120" as="geometry" />
