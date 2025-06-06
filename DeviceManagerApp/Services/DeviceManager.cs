@@ -24,9 +24,9 @@ public class DeviceManager
 
     /// Henter status for én enhed og opdaterer den i listen.
 
-    public async Task<DeviceStatus?> GetStatusAsync(string ip)
+    public async Task<string?> GetStatusAsync(string ip)
     {
-        var status = await _apiManager.GetStatus(ip);
+        var status = await _apiManager.GetStatusAsync(ip);
 
         var device = Devices.FirstOrDefault(d => d.IpAddress == ip);
         if (device != null && status != null)
@@ -42,7 +42,7 @@ public class DeviceManager
 
     public async Task<DeviceConfig?> GetConfigAsync(string ip)
     {
-        var config = await _apiManager.GetConfig(ip);
+        var config = await _apiManager.GetConfigAsync(ip);
 
         var device = Devices.FirstOrDefault(d => d.IpAddress == ip);
         if (device != null && config != null)
@@ -53,18 +53,15 @@ public class DeviceManager
         return config;
     }
 
-    /// <summary>
     /// Henter status fra alle enheder og opdaterer internt.
-    /// </summary>
+
     public async Task UpdateAllStatusesAsync()
     {
         var tasks = Devices.Select(d => GetStatusAsync(d.IpAddress));
         await Task.WhenAll(tasks);
     }
 
-    /// <summary>
     /// Henter konfiguration fra alle enheder og opdaterer internt.
-    /// </summary>
     public async Task UpdateAllConfigsAsync()
     {
         var tasks = Devices.Select(d => GetConfigAsync(d.IpAddress));
