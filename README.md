@@ -13,7 +13,7 @@ Read current state (1/all)
 Read current conf (1)
 
 DESIGN:
-Single responsebility
+Single Responsibility 
 APIManager til at håndtere call
 GETS og PUTS
 Returnere DeviceStatus og DeviceConfig
