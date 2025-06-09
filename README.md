@@ -43,8 +43,17 @@ Manager til at holde devices
 Device som objekt
 
 DESIGN:
+
 Single Responsibility
 APIManager til at håndtere call
 GETS og PUTS
 Returnere DeviceStatus og DeviceConfig
 Device, DeviceStatus og DeviceConfig
+
+	Behold devices i List
+	Single responsebility
+	APIManager til at håndtere call
+		GETS og PUTS
+		Returnere DeviceStatus og DeviceConfig
+	Device, DeviceStatus og DeviceConfig
+
