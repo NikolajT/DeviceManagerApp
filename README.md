@@ -15,6 +15,7 @@ BEGREBER:
 	
 
 DESIGN:
+	Behold devices i List
 	Single responsebility
 	APIManager til at håndtere call
 		GETS og PUTS
