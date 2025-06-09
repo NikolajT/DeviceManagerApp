@@ -17,9 +17,19 @@ public class DeviceManager
         _apiManager = apiManager;
     }
 
-    public void AddDevice(Device device)
+    public void AddOrUpdateDevice(Device device)
     {
-        Devices.Add(device);
+        var existingDevice = Devices.FirstOrDefault(d => d.IpAddress == device.IpAddress);
+        if (existingDevice == null)
+        {
+            Devices.Add(device);
+        }
+        else
+        {
+            existingDevice.Status = device.Status;
+            existingDevice.Config = device.Config;
+            existingDevice.UpdatedAt = device.UpdatedAt;
+        }
     }
 
     /// Henter status for én enhed og opdaterer den i listen.

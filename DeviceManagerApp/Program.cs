@@ -1,7 +1,9 @@
+using DeviceManagerApp;
 using DeviceManagerApp.Client.Pages;
 using DeviceManagerApp.Components;
 using DeviceManagerApp.Models;
-using DeviceManagerApp;
+using DeviceManagerApp.Services;
+using DeviceManagerApp.Workers;
 using Prometheus;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,8 +13,14 @@ builder.Services.AddRazorComponents()
     .AddInteractiveWebAssemblyComponents();
 builder.Services.AddScoped<APIManager>();
 builder.Services.AddHttpClient();
+builder.Services.AddSingleton<DeviceManager>();
+builder.Services.AddSingleton<APIManager>();
+builder.Services.AddHostedService<DeviceMetricsWorker>();
 
 var app = builder.Build();
+
+// Resolve APIManager from the service container
+var apiManager = app.Services.GetRequiredService<APIManager>();
 
 if (app.Environment.IsDevelopment())
 {
@@ -33,38 +41,6 @@ app.UseRouting();
 app.UseAntiforgery();
 
 app.MapMetrics(); // Eksponerer /metrics endpoint
-
-// for testing:
-var testDevices = new List<Device>
-{
-    new Device
-    {
-        Id = "1",
-        IpAddress = "192.168.1.10",
-        Status = "Streaming",
-        UpdatedAt = DateTime.UtcNow,
-        Config = null
-    },
-    new Device
-    {
-        Id = "2",
-        IpAddress = "192.168.1.11",
-        Status = "Offline",
-        UpdatedAt = DateTime.UtcNow,
-        Config = null
-    },
-    new Device
-    {
-        Id = "3",
-        IpAddress = "192.168.1.12",
-        Status = "Streaming",
-        UpdatedAt = DateTime.UtcNow,
-        Config = null
-    }
-};
-DeviceStatusToPrometheusPortal.UpdateMetrics(testDevices);
-
-
 
 
 app.MapRazorComponents<App>()
