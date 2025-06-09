@@ -25,11 +25,6 @@ namespace DeviceManagerApp.Workers
                     // Opdater status og config for alle enheder
                     await _deviceManager.UpdateAllStatusesAsync();
                     await _deviceManager.UpdateAllConfigsAsync();
-                    // DEBUGGING
-                    foreach (var device in _deviceManager.Devices)
-                    {
-                        Console.WriteLine($"Device ID: {device.Id}, IP: {device.IpAddress}, Status: {device.Status}");
-                    }
 
                     // Opdater Prometheus metrics med den nyeste liste
                     DeviceStatusToPrometheusPortal.UpdateMetrics(_deviceManager.Devices);
