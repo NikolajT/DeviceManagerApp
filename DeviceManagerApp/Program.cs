@@ -30,7 +30,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAntiforgery(); // Skal komme efter UseRouting() men før MapRazorComponents og andre endpoints
+app.UseAntiforgery();
 
 app.MapMetrics(); // Eksponerer /metrics endpoint
 
