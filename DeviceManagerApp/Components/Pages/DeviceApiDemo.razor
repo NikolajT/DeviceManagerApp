@@ -1,0 +1,75 @@
+@page "/device-api-demo"
+@using DeviceManagerApp.Models
+@inject APIManager ApiManager
+
+<h3>Device API Demo</h3>
+
+<div class="mb-3">
+    <label for="deviceIp" class="form-label">Device IP:</label>
+    <input id="deviceIp" @bind="deviceIp" class="form-control" />
+    <button class="btn btn-primary mt-2" @onclick="FetchDeviceData">Fetch Device Data</button>
+</div>
+
+@if (isLoading)
+{
+    <p>Loading...</p>
+}
+else if (error is not null)
+{
+    <div class="alert alert-danger">@error</div>
+}
+else
+{
+    @if (status is not null)
+    {
+        <div class="alert alert-info">Status: <b>@status</b></div>
+    }
+    @if (config is not null)
+    {
+        <h5>Configuration</h5>
+        <ul>
+            <li><b>Server:</b> @config.Server</li>
+            <li><b>Audio Bitrate:</b> @config.AudioBitrate</li>
+            <li><b>Video Bitrate:</b> @config.VideoBitrate</li>
+            <li><b>Resolution:</b> @config.Resolution</li>
+            <li><b>FPS:</b> @config.Fps</li>
+            <li><b>Codec:</b> @config.Codec</li>
+        </ul>
+    }
+}
+
+
+@code {
+    private string deviceIp = "";
+    private string? status;
+    private DeviceConfig? config;
+    private bool isLoading = false;
+    private string? error;
+
+    private async Task FetchDeviceData()
+    {
+        isLoading = true;
+        error = null;
+        status = null;
+        config = null;
+
+        try
+        {
+            status = await ApiManager.GetStatusAsync(deviceIp);
+            config = await ApiManager.GetConfigAsync(deviceIp);
+
+            if (status is null && config is null)
+            {
+                error = "Could not fetch data from the device.";
+            }
+        }
+        catch (Exception ex)
+        {
+            error = ex.Message;
+        }
+        finally
+        {
+            isLoading = false;
+        }
+    }
+}

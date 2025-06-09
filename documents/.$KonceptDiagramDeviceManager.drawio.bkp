@@ -1,19 +1,14 @@
 <mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/27.0.9 Chrome/134.0.6998.205 Electron/35.4.0 Safari/537.36" version="27.0.9">
   <diagram name="Page-1" id="F6jj0jgsfgIEh8Rf4QOr">
-    <mxGraphModel dx="1042" dy="1803" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1281" dy="1803" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="OWnZFTI2fPpyt90wz5rs-1" value="Grafana" style="html=1;dashed=0;whiteSpace=wrap;" parent="1" vertex="1">
           <mxGeometry x="520" y="-120" width="100" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="OWnZFTI2fPpyt90wz5rs-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;" parent="1" source="OWnZFTI2fPpyt90wz5rs-2" target="OWnZFTI2fPpyt90wz5rs-1" edge="1">
+        <mxCell id="OWnZFTI2fPpyt90wz5rs-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="OWnZFTI2fPpyt90wz5rs-2" target="OWnZFTI2fPpyt90wz5rs-1" edge="1">
           <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="IEIRWpii7K87fUvm_9KW-1" value="TOBE implemented hvis man ønsker farver på monitoreringen&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="OWnZFTI2fPpyt90wz5rs-5">
-          <mxGeometry x="-0.136" y="-1" relative="1" as="geometry">
-            <mxPoint x="78" y="-56" as="offset" />
-          </mxGeometry>
         </mxCell>
         <mxCell id="OWnZFTI2fPpyt90wz5rs-2" value="Prometeus" style="html=1;dashed=0;whiteSpace=wrap;" parent="1" vertex="1">
           <mxGeometry x="370" y="-120" width="100" height="50" as="geometry" />
@@ -34,7 +29,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="OWnZFTI2fPpyt90wz5rs-11" value="DeviceConfig&lt;br&gt;- server : string&lt;br&gt;- audioBitrate : int&lt;br&gt;- videoBitrate : int&lt;br&gt;- resolution: string&lt;br&gt;- fps : int&lt;br&gt;- codec : string" style="html=1;dashed=0;whiteSpace=wrap;" parent="1" vertex="1">
-          <mxGeometry x="100" y="340" width="170" height="120" as="geometry" />
+          <mxGeometry x="220" y="340" width="170" height="120" as="geometry" />
         </mxCell>
         <mxCell id="OWnZFTI2fPpyt90wz5rs-13" value="DeviceManager&lt;br&gt;-devices: List&amp;lt;Device&amp;gt;&lt;br&gt;- APIManager: APIManger&lt;br&gt;+GetStatus(ip): Task&amp;lt;DeviceStatus&amp;gt;&lt;br&gt;+GetConfig(ip): Task&amp;lt;DeviceConfig&amp;gt;" style="html=1;dashed=0;whiteSpace=wrap;" parent="1" vertex="1">
           <mxGeometry x="120" y="-10" width="240" height="120" as="geometry" />
