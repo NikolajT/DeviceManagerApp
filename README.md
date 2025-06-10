@@ -5,8 +5,10 @@
 
 Appen leder efter devices
 
+Flowet er som følger:
+DeviceMetricsWorker starter samtidig med programmet, og updaterer devicemangager (vha. APIManagers GET-requests) og opdaterer derpå DeviceStatusToPrometheusPortal med de metrics den skal eksponere overfor Prometheus.
 
-
+Det er lavet som en blazor app, da jeg overvejede at lave et UI, men det er ikke implementeret.
 
 
 Teknisk:

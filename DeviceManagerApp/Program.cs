@@ -47,6 +47,4 @@ app.MapRazorComponents<App>()
     .AddInteractiveWebAssemblyRenderMode()
     .AddAdditionalAssemblies(typeof(DeviceManagerApp.Client._Imports).Assembly);
 
-app.MapGet("/Hello", () => "Hello from server!"); // Til test
-
 app.Run();
